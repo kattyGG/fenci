@@ -84,12 +84,12 @@ pkuseg_sentences = split_by_pkuseg(text)
     较慢，对于超大文本仍然有性能瓶颈。
 
 ## 3️⃣ BERT 分句（bert-base-chinese，深度学习）
-
+```python
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 import torch
 import time
 
-# 加载 BERT 中文分句模型
+ 
 model_name = "ckiplab/bert-base-chinese-ws"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForTokenClassification.from_pretrained(model_name)
@@ -122,7 +122,7 @@ def split_by_bert(text):
     end_time = time.time()
     print(f"BERT 分句完成，耗时：{end_time - start_time:.2f} 秒")
     return sentences
-
+```
 # 运行测试
 bert_sentences = split_by_bert(text)
 
