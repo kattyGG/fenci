@@ -15,7 +15,7 @@
 ✅ 代码实现
 
 我们将用 Python 进行测试，并使用 time 计算处理速度。
-1️⃣ 正则表达式（传统方法）
+## 1️⃣ 正则表达式（传统方法）
 
 ```python
 import re
@@ -45,8 +45,9 @@ regex_sentences = split_by_regex(text)
 
     误分割较多，容易在引号、特殊符号处出错。
 
-2️⃣ pkuseg（机器学习方法）
 
+## 2️⃣ pkuseg（机器学习方法）
+```python
 import pkuseg
 import time
 
@@ -66,7 +67,7 @@ def split_by_pkuseg(text):
     end_time = time.time()
     print(f"pkuseg 分句完成，耗时：{end_time - start_time:.2f} 秒")
     return sentences
-
+```
 # 运行测试
 pkuseg_sentences = split_by_pkuseg(text)
 
@@ -82,7 +83,7 @@ pkuseg_sentences = split_by_pkuseg(text)
 
     较慢，对于超大文本仍然有性能瓶颈。
 
-3️⃣ BERT 分句（bert-base-chinese，深度学习）
+## 3️⃣ BERT 分句（bert-base-chinese，深度学习）
 
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 import torch
@@ -139,7 +140,7 @@ bert_sentences = split_by_bert(text)
     处理长文本时可能需要分块（BERT 最大输入 512 tokens）。
     比正则和 pkuseg 慢，但更智能。
 
-4️⃣ LLaMA-13B 分句（最先进方法）
+## 4️⃣ LLaMA-13B 分句（最先进方法）
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
